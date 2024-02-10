@@ -20,12 +20,12 @@ description_tag = soup.find('div', class_='product-description')
 description = description_tag.text
 
 if price <= 10:
-    msg = f"""
-    Title: {title}
-    Description: {description}
-    Price: {price}
-    Link: {url}
-    """
+    msg = f"""Subject:{title} only for ${price}\n\n
+Title: {title}
+Description: {description}
+Price: ${price}
+Link: {url}
+"""
     with smtplib.SMTP('smtp.gmail.com') as connection:
         connection.starttls()
         connection.login(user=GMAIL_USER, password=GMAIL_PASSWORD)
