@@ -19,6 +19,11 @@ title = title_tag.find('h1').text
 description_tag = soup.find('div', class_='product-description')
 description = description_tag.text
 
-print(price)
-print(title)
-print(description)
+if price <= 10:
+    with smtplib.SMTP('smtp.gmail.com') as connection:
+        connection.starttls()
+        connection.login(user=GMAIL_USER, password=GMAIL_PASSWORD)
+        connection.sendmail(
+            from_addr=GMAIL_USER,
+            to_addrs=GMAIL_USER,
+        )
