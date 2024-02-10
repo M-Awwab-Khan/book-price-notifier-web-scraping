@@ -14,3 +14,11 @@ webpage = response.text
 soup = BeautifulSoup(webpage, 'html.parser')
 price_tag = soup.find('span', id='price-field')
 price = float(price_tag.find('span', class_='money').text.strip('$'))
+title_tag = soup.find('div', class_='product-header')
+title = title_tag.find('h1').text
+description_tag = soup.find('div', class_='product-description')
+description = description_tag.text
+
+print(price)
+print(title)
+print(description)
